@@ -15,8 +15,9 @@ end
 
 get "/repository" do
   [
-    { "id" => 1, "path" => "/repository/001_square_small.jpg", "title" => "Image 1" },
-    { "id" => 2, "path" => "/repository/002_square_small.jpg", "title" => "Image 2" }
+    { "id" => 7, "path" => "/repository/007_square_small.jpg", "title" => "Image 7" },
+    { "id" => 8, "path" => "/repository/008_square_small.jpg", "title" => "Image 8" },
+    { "id" => 9, "path" => "/repository/009_square_small.jpg", "title" => "Image 9" }
   ].to_json
 end
 

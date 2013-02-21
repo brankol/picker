@@ -48,7 +48,6 @@ function(Image, AssignedImagesView, AvailableImagesView, ModalTemplate) {
 
             // init views
             this.views.Assigned = new AssignedImagesView({ collection : this.collections.AssignedImages });
-            // this.views.Available = new AvailableImagesView({ collection : this.collections.AvailableImages });
 
             this.render();
             this.bindEvents();
@@ -71,18 +70,13 @@ function(Image, AssignedImagesView, AvailableImagesView, ModalTemplate) {
             // and then cached? but what if new images arrive?
             // also, modal should be opened immediately and populated with available images later
             if (!this.collections.AvailableImages.length) {
-                this.collections.AvailableImages.fetch().then($.proxy(function () {
-                    console.log('populated available images model');
-                    // render AvailableImagesView
-                }, this));
+                this.collections.AvailableImages.fetch().then($.proxy(this.renderAvailableImagesView, this));
             }
-
-            this.openModal();
-
         },
 
-        openModal : function () {
-            console.log('opening modal');
+        renderAvailableImagesView : function () {
+            this.views.Available = new AvailableImagesView({ collection : this.collections.AvailableImages });
+            $('#myModal .modal-body').html(this.views.Available.render().el);
         }
 
     });
