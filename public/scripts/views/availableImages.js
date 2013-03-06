@@ -1,6 +1,6 @@
 define(['views/image'], function(ImageView) {
 
-    var AvailableImagesView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         tagName : 'div',
         className : 'available-images row',
@@ -21,16 +21,10 @@ define(['views/image'], function(ImageView) {
 
         addOne : function (model) {
             var view = new ImageView({ model : model });
-            view.parent = this;
+            view.parentView = this;
             this.$el.append(view.render().el);
-        },
-
-        removeOne : function (id) {
-            this.collection.remove(id);
         }
 
     });
-
-    return AvailableImagesView;
 
 });

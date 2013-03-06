@@ -38,7 +38,7 @@ function(Image, AssignedImagesView, AvailableImagesView, ModalTemplate) {
             this.views = {};
 
             // populate collections
-            // TODO should be read from the file input
+            // TODO: should be read from the file input(s)
             this.collections.AssignedImages = new Image.Collections.Assigned([
                 { "id" : 1, "path" : "/repository/001_square_small.jpg", "title" : "Image 1" },
                 { "id" : 2, "path" : "/repository/002_square_small.jpg", "title" : "Image 2" },
@@ -66,7 +66,7 @@ function(Image, AssignedImagesView, AvailableImagesView, ModalTemplate) {
         },
 
         handleAvailable : function () {
-            // TODO this should be executed after the first click on the Add button
+            // TODO: should this be executed after the first click on the Add button
             // and then cached? but what if new images arrive?
             // also, modal should be opened immediately and populated with available images later
             if (!this.collections.AvailableImages.length) {

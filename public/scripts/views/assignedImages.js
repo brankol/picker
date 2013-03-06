@@ -1,4 +1,4 @@
-define(['views/image'], function(ImageView) {
+define(['views/image', 'views/withActions'], function(ImageView, withActions) {
 
     return Backbone.View.extend({
 
@@ -22,7 +22,9 @@ define(['views/image'], function(ImageView) {
 
         addOne : function (model) {
             var view = new ImageView({ model : model });
-            view.parent = this;
+            _.extend(view, withActions);
+            view.parentView = this;
+            view.delegateEvents(); // rebind events
             this.$el.append(view.render().el);
         },
 
